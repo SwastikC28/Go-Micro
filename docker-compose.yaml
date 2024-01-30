@@ -87,9 +87,11 @@ services:
       FROM_ADDRESS: john.smith@example.com
 
   rabbitmq:
-    image: 'rabbitmq:3.9-alpine'
+    # image: 'rabbitmq:3.9-alpine'
+    image : 'rabbitmq:3.8-management'
     ports:
-      - "5672:5672"
+      - "5672:5672" # main service port
+      - "15672:15672" # RabbitMQ management plugin port
     deploy:
       mode: replicated
       replicas: 1
